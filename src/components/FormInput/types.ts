@@ -1,0 +1,1 @@
+export type FormInputType = "number" | "text" | "password" | "checkbox" | "area" | "email" | "radio" | "date" | "checkbox" | "file" | "range" | "select" 

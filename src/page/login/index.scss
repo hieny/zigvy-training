@@ -1,0 +1,78 @@
+@import "../../sassStyle/variable";
+
+.login {
+    // background-color: white;
+    display: flex;
+    padding: $size1 $size3;
+    flex-direction: column;
+    &_body {
+        overflow-y: scroll;
+    };
+    &_content {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        border-radius: $size2;
+        padding: $size1
+    }
+}
+
+.login_title {
+    text-align: center;
+    // text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px
+}
+
+.login_input {
+    padding: $size2 0;
+    border: 0.5px solid gray;
+    width: 100%;
+    border-radius: $size1;
+    &::-webkit-input-placeholder {
+        padding: 15px;
+        font-weight: 400;
+    }
+   
+}
+
+.btn_login {
+    background-color: red;
+    padding: 10px;
+    border: none;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: $size2;
+    border-radius: $size1;
+}
+
+.policy {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.divider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login_v2 {
+    
+    button {
+        padding: 10px;
+        width: 100%;
+        background-color: white;
+        margin: $size1 0;
+        font-weight: bold;
+        border-radius: $size1;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+.social_name {
+    flex: 1
+}

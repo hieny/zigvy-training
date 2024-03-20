@@ -1,0 +1,14 @@
+@import "../../../../sassStyle/variable";
+
+.country_code {
+    display: flex;
+    flex-direction: column;
+    label{
+        margin: 0;
+        padding:0 $size2
+    }
+    select {
+        padding:$size1 $size2 ;
+        border: none
+    }
+}

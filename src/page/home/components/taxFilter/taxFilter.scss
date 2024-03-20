@@ -1,0 +1,29 @@
+@use "../../../../sassStyle/mixins" as breakpoints;
+@import "../../../../sassStyle/variable";
+
+.btnTax {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0.1px solid gray;
+    
+    border-radius: $size5;
+    width: max-content;
+    padding: 0 5px;
+    margin : 10px 0;
+    @include breakpoints.gt-sm {
+        margin: 0
+    }
+    button {
+        border-radius: $size5;
+        background-color: $white1;
+        padding: $size1;
+        border: none;
+        &:hover {
+            background-color: $gray1;
+        }
+    }
+    &:hover {
+        background-color: $gray1;
+    }
+} 

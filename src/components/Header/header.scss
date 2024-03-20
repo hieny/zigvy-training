@@ -1,0 +1,257 @@
+@use "../../sassStyle/mixins" as breakpoints;
+
+@import "../../sassStyle/variable";
+
+.header_container {
+    border-bottom: 3px solid $gray1;
+    // margin: $size2 0;
+    padding: $size1 0;
+    background: $white1;
+    display: none;
+    transition: all 0.5s ease;
+    border-bottom: 0.5px solid gray;
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5);
+    &.sticky {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+        // background: $white1;
+        // transition: all 0.5s ease;
+    }
+
+    @include breakpoints.gt-sm {
+        display: block;
+    }
+}
+
+.sub_header_middle {
+    opacity: 1;
+    transition: opacity 0.8s ease-in;
+  }
+  
+  .sub_header_middle.sticky {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+  }
+
+.mini_header_middle {
+    display: flex;
+    // flex-grow: 1;
+    // width: fit-content;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
+    box-shadow: 1px 2px gray;
+    border-radius: $size5;
+    // transition: all 0.5s ease;
+    div {
+        margin: 0 10px;
+        &:last-of-type {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.header {
+    padding: $size2 $size8;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    align-items: center;
+    transition: all 0.5s ease;
+
+    &_logo {
+        height: 30px;
+    }
+    &_middle {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div {
+            padding: 0 10px;
+            &:hover {
+                background: $gray1;
+                color: black;
+                border-radius: $size5;
+                cursor: pointer;
+            }
+            p {
+                color: gray;
+                padding: $size1;
+            }
+            .active {
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+    &_left {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &_content {
+            padding: 0 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            img {
+                width: 20px;
+                height: 20px;
+                color: black;
+            }
+            &:hover {
+                background: $gray1;
+                color: black;
+                border-radius: $size5;
+                cursor: pointer;
+            }
+        }
+        div {
+            
+        }
+
+        .toggle {
+            display: none;
+            &.active {
+                display: block;
+                position: absolute;
+                right: -10px;
+                bottom: -55px;
+                background: white;
+                border: 1px solid black;
+                border-radius: $size1;
+                box-shadow: 4px 4px 3px gray;
+                padding: 2px $size1;
+            }
+        }
+    }
+    &_left_info {
+        display: flex;
+        justify-content: center;
+        color: black;
+        height: 10px;
+        padding: $size1;
+        border: 0.5px solid gray;
+        height: auto;
+        border-radius: $size5;
+        // box-shadow: 3px 3px;
+        &:hover {
+            box-shadow: 3px 4px 2px gray;
+        }
+    }
+    &_sub_middle {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        padding: 0 5px;
+        align-items: center;
+        margin: auto;
+        border: 1px solid gray;
+        box-shadow: 1px 2px gray;
+        border-radius: $size5;
+        div {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            margin: 0 $size1;
+            padding: $size1;
+            height: max-content;
+            // width: fit-content;
+            // border-right: 1px solid black;
+            input {
+                border: none;
+            }
+            p {
+                margin: 0;
+                color: gray;
+            }
+            &:hover {
+                background-color: $gray1;
+                border-radius: $size5;
+                border: none;
+                cursor: pointer;
+            }
+        }
+        :last-of-type {
+            // display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search {
+            flex-grow: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            &:hover {
+                background: red;
+                // border-radius: 50%;
+
+                cursor: pointer;
+            }
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+
+.mini1 {
+    position: absolute;
+    top: -100px;
+    transition: all 0.8s ease-out;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.mini1.sticky {
+    // position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s ease-in;
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.mini2.sticky {
+    position: absolute;
+    top: -100px;
+    transition: all 0.8s ease-out;
+}
+
+
+.divider {
+    width: 0.5px;
+    height: $size3;
+    background-color: black;
+}
+
+.search {
+    display: flex;
+    background: red;
+    flex-grow: 0;
+    width: 20px;
+    height: 20px;
+    color: white;
+    padding: 5px;
+    margin: $size1;
+    border-radius: 50%;
+}

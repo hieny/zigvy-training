@@ -1,0 +1,39 @@
+@import "../../sassStyle/variable";
+
+
+#toast_provider {
+    
+}
+.toastify {
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    z-index: 100;
+    border-radius: $size1;
+    display: flex;
+    box-shadow: 3px 3px 3px gray;
+    background-color: white;
+    p {
+        margin: 0;
+        padding: $size2 $size4;
+    }
+}
+
+.info,
+.success,
+.danger {
+    width: $size1;
+    padding: 5px;
+    border-start-start-radius: $size1;
+    border-bottom-left-radius: $size1;
+}
+
+.info {
+    background: blue;
+}
+.success {
+    background: green;
+}
+.danger {
+    background: red;
+}

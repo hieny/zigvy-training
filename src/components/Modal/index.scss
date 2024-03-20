@@ -1,0 +1,34 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.218);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.header_content {
+  display: flex;
+  justify-content: flex-end;
+}
+.close-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn-show {
+  cursor: pointer;
+}

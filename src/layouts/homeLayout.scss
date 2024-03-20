@@ -1,0 +1,9 @@
+@use "../sassStyle/mixins" as breakpoints;
+@import "../sassStyle/variable";
+
+.home_content {
+    padding: $size1 $size1;
+    @include breakpoints.gt-sm {
+        padding: $size1 $size8;
+    }
+}

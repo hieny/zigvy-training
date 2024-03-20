@@ -1,0 +1,86 @@
+@use "../../../../sassStyle/mixins" as breakpoints;
+
+@import "../../../../sassStyle/variable";
+
+.categories {
+    position: relative;
+    overflow-x: scroll;
+
+    width: 100%;
+    // width: 100%;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .btn {
+        opacity: 0;
+    }
+
+    @include breakpoints.gt-sm {
+        width: 75%;
+        .btn {
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: fit-content;
+            height: fit-content;
+            background: white;
+            border-radius: 50%;
+            border: 1px solid black;
+            cursor: pointer;
+
+            &.left {
+                left: 0;
+            }
+
+            &.right {
+                right: 0;
+            }
+        }
+    }
+
+    .categories_content {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        div {
+            margin: 0 $size2;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+
+            div {
+                p {
+                    font-size: 13px;
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    :hover {
+        cursor: pointer;
+    }
+
+    &_active {
+        border-bottom: 2px solid black;
+    }
+
+    &_inactive {
+        border-bottom: 1px solid white;
+
+        &:hover {
+            border-bottom: 1px solid gray;
+        }
+    }
+}

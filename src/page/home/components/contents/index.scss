@@ -1,0 +1,15 @@
+@use "../../../../sassStyle/mixins" as breakpoints;
+
+.contents {
+    display: grid;
+
+    gap: 30px;
+    grid-template-columns: auto;
+
+    @include breakpoints.gt-sm {
+        grid-template-columns: repeat(2, auto);
+    }
+    @include breakpoints.gt-xxl {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

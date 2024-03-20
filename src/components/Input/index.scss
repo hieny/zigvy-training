@@ -1,0 +1,31 @@
+@import "../../sassStyle/variable";
+
+input {
+    ::-webkit-input-placeholder,
+    ::-moz-placeholder,
+    ::-ms-input-placeholder {
+        padding: $size1;
+        color: red;
+    }
+    padding: $size1;
+    &:focus {
+        background-color: $gray1;
+        outline: none;
+    }
+}
+
+.is-valid {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    font-weight: 100;
+    margin: 0;
+}
+
+.no-error {
+    color: white;
+    font-weight: 100;
+    margin: 0;
+}

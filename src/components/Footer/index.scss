@@ -1,0 +1,120 @@
+@use "../../sassStyle/mixins" as breakpoints;
+@import "../../sassStyle/variable";
+.footer {
+    padding: $size5;
+    background: $gray1;
+}
+.footer_title {
+    font-size: 30px;
+    margin: 0;
+}
+.footer_type {
+    display: flex;
+    width: 80%;
+    overflow-y: auto;
+    @include breakpoints.gt-sm {
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid gray;
+    }
+    div {
+        padding: $size3 0;
+        margin-right: $size3;
+        color: gray;
+        border-bottom: 2px solid white;
+        &:hover {
+            border-bottom: 2px solid black;
+            cursor: pointer;
+        }
+    }
+    .active {
+        color: black;
+        border-bottom: 2px solid black;
+    }
+}
+
+.footer_type_content {
+    display: grid;
+    grid-template-columns: auto ;
+    gap: 10px;
+    @include breakpoints.gt-sm {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+.footer_type_content_item_detail {
+    color: gray;
+    font-weight: 200;
+    margin: 0;
+}
+
+.footer_support {
+    display: grid;
+    grid-template-columns: auto;
+    padding: $size5;
+    background: $gray1;
+    border-top: 2px solid silver;
+    @include breakpoints.gt-sm {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+.footer_support_title {
+    font-weight: bold;
+}
+
+.footer_support_title_content {
+    display: flex;
+    flex-direction: column;
+    span {
+        color: gray;
+        font-weight: 200;
+        
+        margin: 5px 0;
+    }
+}
+
+.footer_info {
+    background: $gray1;
+    padding: $size1 $size5;
+    &_content {
+        border-top: 1px solid gray;
+        padding-top: $size1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include breakpoints.gt-sm {
+            flex-direction: row;
+            grid-template-columns: auto auto auto auto;
+        }
+        &_policy {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            @include breakpoints.gt-sm {
+                flex-direction: row;
+            }
+        }
+        &_social {
+            display: flex;
+            justify-content: space-between;
+            &_icon {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+            }
+        }
+    }
+    span {
+        margin: 0 5px;
+    }
+}
+
+.dot_divide {
+    display: none;
+    @include breakpoints.gt-sm {
+        display: inline-block;
+    }
+    text-align: center;
+    line-height: $size1;
+}
