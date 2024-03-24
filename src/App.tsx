@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router-dom";
 // import HomePage from "./page/home";
-import { Suspense, lazy } from "react";
 
 import { ToastProvider } from "./components/Toastify/ToastProvider";
+import Router from "./routes";
 // import Toastify from "./components/toastify/Toastify";
-const HomePage = lazy(() => import("./page/home"));
+// const HomePage = lazy(() => import("./page/home"));
 
 function App() {
   return (
     <ToastProvider>
       {/* <Toastify /> */}
-      <Routes>
+      <Router/>
+      {/* <Routes>
         <Route
           path="/"
           element={
@@ -19,7 +19,7 @@ function App() {
             </Suspense>
           }
         />
-      </Routes>
+      </Routes> */}
     </ToastProvider>
   );
 }
