@@ -1,76 +1,25 @@
-export type RouterMeta  ={
-    name?: string;
-    path: string;
-    isShow: boolean;
-    isCommon?: boolean;
-    isAuth?: boolean;
-    icon?: string;
-  }
-  
-  export type RouterMetaType = {
-    [key: string]: RouterMeta;
-  };
-  
+import React, { lazy } from "react";
 
-  const routerMeta: RouterMetaType = {
-    home:{
-      name: 'Home',
-      path: '/',
-      isShow: true,
-      isCommon: true,
-    },
-    // HomePage: {
-    //   name: 'Home',
-    //   path: '/',
-    //   isShow: true,
-    //   isCommon: true,
-    // },
-    // NewArticlePage: {
-    //   name: 'New Article',
-    //   path: '/editor',
-    //   isShow: true,
-    //   isAuth: true,
-    //   icon: 'ion-compose',
-    // },
-    // EditArticlePage: {
-    //   name: 'Edit Article',
-    //   path: '/editor/:slug',
-    //   isShow: false,
-    // },
-    // SettingPage: {
-    //   name: 'Setting',
-    //   path: '/settings',
-    //   isShow: true,
-    //   isAuth: true,
-    //   icon: 'ion-gear-a',
-    // },
-    // ArticlePage: {
-    //   name: 'Article',
-    //   path: '/article/:slug',
-    //   isShow: false,
-    // },
-    // ProfilePage: {
-    //   name: 'Profile',
-    //   path: '/profile/:username/*',
-    //   isShow: false,
-    // },
-    // SignInPage: {
-    //   name: 'Sign in',
-    //   path: '/login',
-    //   isShow: true,
-    //   isAuth: false,
-    // },
-    // SignUpPage: {
-    //   name: 'Sign up',
-    //   path: '/register',
-    //   isShow: true,
-    //   isAuth: false,
-    // },
-    // NotFoundPage: {
-    //   path: '/*',
-    //   isShow: false,
-    // },
-  };
-  
+const HomeComponent = lazy(() => import("../page/Home"));
 
-  export default routerMeta;
+export type RouterMeta = {
+  name?: string;
+  path: string;
+  isCommon: boolean;
+  component: React.LazyExoticComponent<() => JSX.Element>;
+};
+
+export type RouterMetaType = {
+  [key: string]: RouterMeta;
+};
+
+const routerMeta: RouterMetaType = {
+  home: {
+    name: "Home",
+    path: "/",
+    isCommon: true,
+    component: HomeComponent,
+  },
+};
+
+export default routerMeta;

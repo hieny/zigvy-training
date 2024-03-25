@@ -1,0 +1,9 @@
+@import "../../sassStyle/variable";
+
+.controller_input {
+    margin: $size1;
+    label {
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}

@@ -13,7 +13,8 @@
         flex-direction: column;
         border: 1px solid gray;
         border-radius: $size2;
-        padding: $size1
+        padding: $size2;
+        margin: $size4 0
     }
 }
 
@@ -22,7 +23,9 @@
     // text-transform: uppercase;
     font-weight: bold;
     border-bottom: 1px solid gray;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    font-size: $size3;
+
 }
 
 .login_input {
@@ -46,6 +49,7 @@
     font-weight: bold;
     font-size: $size2;
     border-radius: $size1;
+    margin: $size2 0
 }
 
 .policy {

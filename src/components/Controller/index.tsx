@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./index.scss"
 type FormLayoutControlerProps = {
   label?: string;
   children: React.ReactNode;
@@ -12,10 +12,10 @@ export default function FormLayoutControler({
   error
 }: FormLayoutControlerProps) {
   return (
-    <>
+    <div className="controller_input">
       <label>{label}</label>
       {children}
      <p style={{color: "red", margin: "0"}}>{error && error}</p>
-    </>
+    </div>
   );
 }

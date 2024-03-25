@@ -1,65 +1,45 @@
-// import { useState } from "react";
-// import Input from "../../components/input/Input";
 import "./index.scss";
-import CountryCode from "./components/countryCode";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import Web2Login from "./components/Web2Login";
-// import { phoneRegExp } from "../../utils/regex";
-import SeparateLine from "../../components/SeperateLine/SeparateLine";
 import FormLayoutControler from "../../components/Controller";
-import FormInput from "../../components/FormInput";
+import FormInput from "@/components/FormInput";
+import { useUserLogin } from "@/services/queries/user/user.query";
+import { UserloginType } from "@/services/queries/user/user.type";
+// import { AxiosError } from "axios";
 
-// type LoginFormInput = {
-//   phoneNumber: string;
-//   // userName: string;
-//   // password: string;
-// };
-
-type SignUp = {
-  userName: string;
-  password: string;
-  countryCode: string;
+type LoginType = {
+  isModal: boolean;
+  handleCloseModal: () => void;
 };
-
-export default function Login() {
+export default function Login({handleCloseModal }: LoginType) {
   const validateSchema = Yup.object().shape({
     userName: Yup.string().required("username is required"),
-    password: Yup.string().required("password is required"),
-    countryCode: Yup.string().required("countrycode is required"),
+    passWord: Yup.string().required("password is required"),
   });
   const formOptions = { resolver: yupResolver(validateSchema) };
   const {
-    // register,
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm<SignUp>(formOptions);
+  } = useForm<UserloginType>(formOptions);
+  const loginMutation = useUserLogin();
 
-  const onSubmit: SubmitHandler<SignUp> = (data) => {
-    console.log(data);
-    window.alert(JSON.stringify(data));
+  const onSubmit: SubmitHandler<UserloginType> = (data) => {
+    loginMutation.mutate(data);
   };
+
+  if (loginMutation.isSuccess) {
+    handleCloseModal()
+  }
 
   return (
     <div className="login">
       <p className="login_title">Log in or sign up</p>
       <div>
+        <p>{loginMutation.error?.response?.data.message}</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="login_content">
-            
-            <CountryCode
-              control={control}
-              className={`login_input ${
-                errors.countryCode?.message ? "is-valid" : ""
-              }`}
-              name={"countryCode"}
-              error={errors.countryCode?.message}
-            />
-
-            <SeparateLine />
-
             {/* userName */}
             <FormLayoutControler
               label="userName"
@@ -78,14 +58,14 @@ export default function Login() {
             {/* password */}
             <FormLayoutControler
               label="Password"
-              error={errors.password?.message}
+              error={errors.passWord?.message}
             >
               <FormInput
                 type="password"
-                name="password"
+                name="passWord"
                 control={control}
                 className={`login_input ${
-                  errors.password?.message ? "is-valid" : ""
+                  errors.passWord?.message ? "is-valid" : ""
                 }`}
               />
             </FormLayoutControler>
@@ -99,8 +79,6 @@ export default function Login() {
             Continue
           </button>
         </form>
-        {/* <div className="divider">---------------or---------------</div> */}
-        <Web2Login />
       </div>
     </div>
   );

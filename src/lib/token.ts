@@ -8,8 +8,8 @@ class Token {
     public getToken(key: string) {
         return localStorage.getItem(key);
     }
-    public setToken(key: string, token: string) {
-        return localStorage.setItem(key,token);
+    public setToken(token: string) {
+        return localStorage.setItem(this.tokenKey,token);
     }
     public removeToken(key: string) {
         return localStorage.removeItem(key);

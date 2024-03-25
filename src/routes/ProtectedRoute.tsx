@@ -1,26 +1,22 @@
-
 import { Navigate } from "react-router-dom";
 import token from "../lib/token";
 // import routerMeta from "./routerMeta";
 
-interface IProtectedRoute {
-  children: JSX.Element;
-  path?: string;
-}
+type ProtectedRoute = {
+  Component: React.LazyExoticComponent<() => JSX.Element>;
+  path: string;
+  isCommon: boolean;
+};
 
-const ProtectedRoute = ({ children }: IProtectedRoute) => {
-  const isExsitedAccessToken = token.getToken(token.getTokenKey())
-    ? true
-    : false;
-
-  if (!isExsitedAccessToken) {
+const ProtectedRoute = ({ Component, isCommon, path }: ProtectedRoute) => {
+  const isExsitedAccessToken = !!token.getToken(token.getTokenKey())
+  
+  if (isCommon) return <Component />;
+  //if private
+  if (!isCommon && !isExsitedAccessToken) {
     return <Navigate to={"/"} replace={true} />;
+  } else {
+    return <Navigate to={path} replace={true} />;
   }
-
-  // if (isExsitedAccessToken) {
-  //   return <Navigate to={routerMeta.HomePage.path} replace={true} />;
-  // }
-
-  return children;
 };
 export default ProtectedRoute;

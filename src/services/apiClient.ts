@@ -1,7 +1,8 @@
 import axios from "axios";
-import token from "../lib/token";
+import token from "@/lib/token";
 
-const host = "https://api.realworld.io/api";
+// const host = import.meta.env.BASE_URL
+const host = "http://127.0.0.1:3000/"
 
 const apiClient = axios.create({
   baseURL: host,

@@ -121,16 +121,20 @@
 
         .toggle {
             display: none;
+            div {
+                padding: 5px;
+                
+            }
             &.active {
                 display: block;
                 position: absolute;
                 right: -10px;
-                bottom: -55px;
+                bottom: -90px;
                 background: white;
-                border: 1px solid black;
+                border: 0.5px solid black;
                 border-radius: $size1;
                 box-shadow: 4px 4px 3px gray;
-                padding: 2px $size1;
+                padding: $size1 $size5;
             }
         }
     }
