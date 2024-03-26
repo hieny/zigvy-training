@@ -28,16 +28,16 @@
 .sub_header_middle {
     opacity: 1;
     transition: opacity 0.8s ease-in;
-  }
-  
-  .sub_header_middle.sticky {
+}
+
+.sub_header_middle.sticky {
     position: absolute;
     top: -50px;
     left: 50%;
     transform: translate(-50%);
     opacity: 0;
     transition: opacity 0.8s ease-out;
-  }
+}
 
 .mini_header_middle {
     display: flex;
@@ -116,25 +116,36 @@
             }
         }
         div {
-            
         }
 
         .toggle {
             display: none;
             div {
-                padding: 5px;
-                
+                // padding: 5px;
+                cursor: pointer;
             }
             &.active {
                 display: block;
                 position: absolute;
                 right: -10px;
+                // bottom: -100px;
                 bottom: -90px;
                 background: white;
                 border: 0.5px solid black;
                 border-radius: $size1;
                 box-shadow: 4px 4px 3px gray;
-                padding: $size1 $size5;
+                // padding: $size1 $size5;
+            }
+            &_button {
+                width: $size10 * 2;
+                height: $size5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    cursor: pointer;
+                    background: $gray1;
+                }
             }
         }
     }
@@ -240,7 +251,6 @@
     top: -100px;
     transition: all 0.8s ease-out;
 }
-
 
 .divider {
     width: 0.5px;

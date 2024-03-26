@@ -1,15 +1,16 @@
 // useUserLogin.ts
 
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { loginApi, useLogout } from "./user.api";
 import token from "@/lib/token";
+import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { loginApi, userLogoutApi } from "./user.api";
 
 export const useUserLogin = () =>
   useMutation({
     mutationFn: loginApi,
     onSuccess: (response) => {
       token.setToken(response.data.accessToken);
+      token.setRefreshToken(response.data.refreshToken)
     },
     onError: (
       err: AxiosError<{ message: string; error: string; statusCode: number }>
@@ -18,14 +19,10 @@ export const useUserLogin = () =>
     },
   });
 
-  export const useUserLogout = () => {
-    // Define the logout function
-    const logout = useQuery({
-      queryKey: ["USER_LOGOUT"],
-      queryFn: useLogout,
-    });
-  
-    // Return the logout function
-    return logout;
-  };
-  
+export const useUserLogout = () =>
+  useMutation({
+    mutationFn: userLogoutApi,
+    onSuccess: () => {
+      token.removeToken();
+    },
+  });

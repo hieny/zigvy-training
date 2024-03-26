@@ -17,7 +17,7 @@ export const loginApi = async (
   return response.data;
 };
 
-export const useLogout = async () => {
-  const response = await apiClient.get("/authen/logout");
+export const userLogoutApi = async () => {
+  const response = await apiClient.post("/authen/logout");
   return response.data;
 };

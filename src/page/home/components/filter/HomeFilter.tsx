@@ -1,4 +1,4 @@
-import Categories from "../categories/Categories";
+import Categories from "../Categories";
 import TaxFilter from "../taxFilter/TaxFilter";
 import FilterType from "../typeFilter/FilterType";
 import "./index.scss";

@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import AlignSVG from "../../assets/AlignSVG";
 import UserSVG from "../../assets/UserSVG";
 import ToggleModal from "./ToggleModal";
 
+type HeaderLeftContext = {
+  handleCloseToggle: () => void;
+};
+
+export const HeaderContext = createContext<HeaderLeftContext | null>(null);
 export default function HeaderLeft() {
   const [isOpenToggle, setIsOpenToggle] = useState<boolean>(false);
+  const handleCloseToggle = () => {
+    setIsOpenToggle(false);
+  };
   return (
     <div className="header_left">
       <div className="header_left_content">
@@ -22,7 +30,9 @@ export default function HeaderLeft() {
         <AlignSVG />
         <UserSVG />
       </div>
-        <ToggleModal isOpenToggle={isOpenToggle}/>
+      <HeaderContext.Provider value={{ handleCloseToggle }}>
+        <ToggleModal isOpenToggle={isOpenToggle} />
+      </HeaderContext.Provider>
     </div>
   );
 }
