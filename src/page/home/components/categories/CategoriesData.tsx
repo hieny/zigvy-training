@@ -3,7 +3,7 @@ import React from "react";
 
 type CategoryTypeProps = {
   data: CategoryType[];
-  activeCate: string;
+  activeCate: string | undefined;
   setCategories: (name: string) => void;
   refContent: React.RefObject<HTMLDivElement>;
 };
@@ -19,12 +19,12 @@ export default function CategoriesData({
         data.map((item) => (
           <div
             className={`${
-              activeCate === item.name
+              activeCate === item._id
                 ? "categories_active"
                 : "categories_inactive"
             }`}
             key={item._id}
-            onClick={() => setCategories(item.name)}
+            onClick={() => setCategories(item._id)}
           >
             <div className="categories_content_data">
               <img src={item.iconUrl} alt={item.name} />

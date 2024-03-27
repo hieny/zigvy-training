@@ -45,6 +45,7 @@
         display: flex;
         align-items: center;
         flex-direction: row;
+        text-align: center;
         justify-content: flex-start;
         overflow-x: scroll;
         scrollbar-width: none;
@@ -71,6 +72,7 @@
         &_data {
             display: flex;
             flex-direction: column;
+            width: 70px;
             justify-content: center;
             align-items: center;
         }
@@ -85,10 +87,10 @@
     }
 
     &_inactive {
-        border-bottom: 1px solid white;
+        border-bottom: 2px solid white;
 
         &:hover {
-            border-bottom: 1px solid gray;
+            border-bottom: 2px solid gray;
         }
     }
 }
@@ -97,10 +99,10 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background:  $gray1;
+    background: $gray1;
 }
 
-.name_cate_skeleton{
+.name_cate_skeleton {
     width: 40px;
     height: 15px;
     background: $gray1;

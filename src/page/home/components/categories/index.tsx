@@ -1,13 +1,13 @@
 import { useGetCategories } from "@/services/queries/home/home.query";
 import { CategoryType } from "@/services/queries/home/home.type";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CategoriesData from "./CategoriesData";
 import CategoriesSkeleton from "./CategoriesSkeleton";
 import "./index.scss";
 
 export default function Categories() {
   const { data, isLoading, isError, refetch } = useGetCategories();
-  const [activeCate, setCategories] = useState<string>("Cabin");
+  const [activeCate, setCategories] = useState<string | undefined>(undefined);
   const ref = useRef<HTMLDivElement>(null);
 
   console.log("error", isError);
@@ -15,8 +15,8 @@ export default function Categories() {
   if (data) {
     categoriesData = data.data;
   }
-  if(isError) {
-    refetch()
+  if (isError) {
+    refetch();
   }
 
   const scroll = (direction: number) => {
@@ -25,6 +25,12 @@ export default function Categories() {
       ref.current.scrollLeft += direction * scrollAmount;
     }
   };
+
+  useEffect(() => {
+    if (data) {
+      setCategories(data.data[0]._id);
+    }
+  }, [data]);
 
   return (
     <div className="categories">

@@ -1,6 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
-import "./homeLayout.scss"
+import "./homeLayout.scss";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 type MainLayoutType = {
   children: React.ReactNode;
 };
@@ -9,6 +10,7 @@ export default function HomeLayout({ children }: MainLayoutType) {
     <div>
       <Header />
       <div className="home_content">{children}</div>
+      <Footer />
     </div>
   );
 }
