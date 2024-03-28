@@ -1,32 +1,38 @@
-import { ContentDataType } from "../data";
+import { PlaceType } from "@/services/queries/home/home.type";
+// import { ContentDataType } from "../data";
 import FavoriteContent from "./FavoriteContent";
 import ImgSlider from "./ImgSlider";
 import "./index.scss";
+import React from "react";
 
 type CardContentType = {
-  item: ContentDataType;
+  item: PlaceType;
 };
-export default function CardContent({ item }: CardContentType) {
+
+const CardContent: React.FC<CardContentType> = React.memo(({ item }) => {
+  console.log("item: " + item)
   return (
     <div className="cardContent">
-      <ImgSlider imgs={item.imgs} />
+      <ImgSlider imgs={item.imgArrUrl} />
       <div className="cardContent_info">
         <div className="cardContent_info_left">
           <p>{item.name}</p>
           <p className="distance">{item.distance}</p>
-          <p className="time">{item.time}</p>
+          <p className="time">{item.bookingDate}</p>
           <p>
             <span style={{ fontWeight: "bold" }}>${item.price}</span> night
           </p>
         </div>
-        <div className="cardContent_info_right">★{item.vote}</div>
+        <div className="cardContent_info_right">★{item.rate}</div>
       </div>
-      {item.isGuestFavorite && (
+      {item.isMoreUsersFavorite && (
         <div className="guest_favorite">
           <span>Guest favorite</span>
         </div>
       )}
-      <FavoriteContent/>
+      <FavoriteContent />
     </div>
   );
-}
+});
+
+export default CardContent;

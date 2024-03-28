@@ -3,7 +3,14 @@ export type ActionType<T> ={
     payload: T
 }
 
-export type DataResponse<T> = {
+export type Pagination = {
+    currentPage: number;
+    skip: number;
+    totalPage: number;
+}
+
+export type DataResponse<T>= {
     status: boolean;
-    data: T
+    data: T;
+    pagination?: Pagination
 }
