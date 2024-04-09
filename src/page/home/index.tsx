@@ -1,16 +1,20 @@
-import HomeLayout from "../../layouts/HomeLayout";
-import Contents from "./components/Contents";
-import HomeFilter from "./components/filter/HomeFilter";
-import MapContent from "./components/map/MapContent";
+// import HomeLayout from "../../layouts/HomeLayout";
+// import Contents from "./components/Contents";
+// import HomeFilter from "./components/filter/HomeFilter";
+// import MapContent from "./components/map/MapContent";
+
+import Users from "./newComponents/Users/index";
 
 export default function HomePage() {
   return (
     <>
-      <HomeLayout>
+      {/* <HomeLayout>
         <HomeFilter />
         <Contents />
         <MapContent />
-      </HomeLayout>
+      </HomeLayout> */}
+
+      <Users />
     </>
   );
 }

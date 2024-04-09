@@ -1,5 +1,5 @@
 import apiClient from "@/services/apiClient";
-import { UserloginType } from "./user.type";
+import { UserSignUpType, UserloginType } from "./user.type";
 
 export const loginApi = async (
   userLogin: UserloginType
@@ -10,14 +10,24 @@ export const loginApi = async (
     refreshToken: string;
   };
 }> => {
-  const response = await apiClient.post("/authen/signin", {
-    username: userLogin.userName,
-    password: userLogin.passWord,
+  const response = await apiClient.post("/authentication/signin", {
+    username: userLogin.username,
+    password: userLogin.password,
   });
   return response.data;
 };
 
 export const userLogoutApi = async () => {
-  const response = await apiClient.post("/authen/logout");
+  const response = await apiClient.post("/authentication/logout");
+  return response.data;
+};
+
+export const userSignUpApi = async (userSignUp: UserSignUpType) => {
+  return await apiClient.post("/authentication/signup", userSignUp);
+};
+
+export const getAllUsers = async () => {
+  const response = await apiClient.get("/user");
+  console.log("1111", response)
   return response.data;
 };

@@ -8,15 +8,15 @@ type ProtectedRoute = {
   isCommon: boolean;
 };
 
-const ProtectedRoute = ({ Component, isCommon, path }: ProtectedRoute) => {
-  const isExsitedAccessToken = !!token.getToken(token.getTokenKey())
-  
+const ProtectedRoute = ({ Component, isCommon }: ProtectedRoute) => {
+  const isExsitedAccessToken = !!token.getToken();
+
   if (isCommon) return <Component />;
   //if private
   if (!isCommon && !isExsitedAccessToken) {
-    return <Navigate to={"/"} replace={true} />;
-  } else {
-    return <Navigate to={path} replace={true} />;
+    return <Navigate to={"/sign-in"} replace={true} />;
+  } else if (!isCommon && isExsitedAccessToken) {
+    return <Component />;
   }
 };
 export default ProtectedRoute;

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../project-name"
+		},
+		{
+			"path": "../../../../../../../Downloads/regenesis-api-test"
+		}
+	],
+	"settings": {}
+}
