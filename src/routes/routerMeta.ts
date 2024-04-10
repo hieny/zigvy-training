@@ -1,9 +1,11 @@
 import React, { lazy } from "react";
 
-const HomeComponent = lazy(() => import("../page/Home"));
+const HomeComponent = lazy(() => import("../page/home"));
 const SignInComponent = lazy(() => import("../page/SignIn"));
 const SignUpComponent = lazy(() => import("../page/SignUp"));
-const ChatComoponent = lazy(() => import("../page/Home/newComponents/Chat/index"));
+const ChatComoponent = lazy(
+  () => import("../page/home/newComponents/Chat/index")
+);
 
 export type RouterMeta = {
   name?: string;
@@ -46,7 +48,7 @@ const routerMeta: RouterMetaType = {
     path: "/messages/:id",
     isCommon: false,
     component: ChatComoponent,
-  }
+  },
 };
 
 export default routerMeta;

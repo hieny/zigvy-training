@@ -2,9 +2,11 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   createNewChat,
   getAllMessages,
+  getMessageById,
   getMessagesDetailById,
 } from "./chat.api";
 import { AxiosError } from "axios";
+
 
 export const useCreateNewMessages = () =>
   useMutation({
@@ -28,10 +30,20 @@ export const useGetAllMessages = () =>
     },
   });
 
-export const useGetMessageDetailById = (id: string) =>
-  useQuery({
+export const useGetMessageDetailById = (id: string) => {
+  return  useQuery({
     queryKey: ["getDetailMessages"],
     queryFn: async () => {
       return await getMessagesDetailById(id);
     },
   });
+}
+export const useGetMessagelById = (id: string) => {
+  return  useQuery({
+    queryKey: ["getMessageById"],
+    queryFn: async () => {
+      return await getMessageById(id);
+    },
+  });
+}
+ 

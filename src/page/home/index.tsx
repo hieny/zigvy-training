@@ -3,7 +3,7 @@
 // import HomeFilter from "./components/filter/HomeFilter";
 // import MapContent from "./components/map/MapContent";
 
-import Users from "./newComponents/Users/index";
+import Users from "./newComponents/Users";
 
 export default function HomePage() {
   return (

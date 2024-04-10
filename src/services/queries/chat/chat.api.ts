@@ -18,3 +18,8 @@ export const getMessagesDetailById = async (id: string) => {
   console.log("response11111: " + response.data);
   return response.data;
 };
+
+export const getMessageById = async (messageId: string) => {
+  const response = await apiClient.get(`/messages/${messageId}`);
+  return response.data;
+};
