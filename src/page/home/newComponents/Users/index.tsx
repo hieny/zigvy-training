@@ -21,6 +21,7 @@ export default function Users() {
     
     if (response) {
       navigate(`/messages/${response._id}`);
+      localStorage.setItem('toID', userId);
     }
   };
   return (

@@ -1,10 +1,10 @@
 import React, { lazy } from "react";
 
-const HomeComponent = lazy(() => import("../page/home"));
+const HomeComponent = lazy(() => import("../page/Home"));
 const SignInComponent = lazy(() => import("../page/SignIn"));
 const SignUpComponent = lazy(() => import("../page/SignUp"));
 const ChatComoponent = lazy(
-  () => import("../page/home/newComponents/Chat/index")
+  () => import("../page/Home/newComponents/Chat/index")
 );
 
 export type RouterMeta = {
